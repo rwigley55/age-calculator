@@ -140,6 +140,16 @@ select {
   color: var(--clr-purple);
 }
 
+.text-error {
+  color: var(--clr-light-red);
+  font-size: 0.75em;
+  font-weight: 400; /*needs fixing*/
+}
+
+.display-none {
+  display: none;
+}
+
 /* ----------------------  */
 /* Layout                  */
 /* ----------------------  */
@@ -195,4 +205,8 @@ form {
 .units {
   font-style: italic;
   font-weight: 700;
+}
+
+.input-error {
+  border: 1px solid var(--clr-light-red) !important;
 }

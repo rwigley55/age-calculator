@@ -14,22 +14,42 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css" />
+    <script src="calculateAge.js" defer></script>
   </head>
   <body>
     <div class="grid-container">
       <div class="main-box">
-        <form action="#" class="flex">
+        <form action="#" class="flex" onsubmit="calculateAge(event)">
           <div class="flex column input-section">
             <label for="day">Day</label>
-            <input type="number" id="day" name="day" placeholder="DD" />
+            <input
+              type="number"
+              id="day"
+              name="day"
+              placeholder="DD"
+              required
+            />
+            <span class="text-error display-none">Must be a valid date</span>
           </div>
           <div class="flex column input-section">
             <label for="month">Month</label>
-            <input type="number" id="month" name="month" placeholder="MM" />
+            <input
+              type="number"
+              id="month"
+              name="month"
+              placeholder="MM"
+              required
+            />
           </div>
           <div class="flex column input-section">
             <label for="year">Year</label>
-            <input type="number" id="year" name="year" placeholder="YYYY" />
+            <input
+              type="number"
+              id="year"
+              name="year"
+              placeholder="YYYY"
+              required
+            />
           </div>
           <input type="submit" value="Submit" />
         </form>

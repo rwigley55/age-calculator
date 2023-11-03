@@ -136,6 +136,10 @@ select {
   flex-direction: column;
 }
 
+.text-purple {
+  color: var(--clr-purple);
+}
+
 /* ----------------------  */
 /* Layout                  */
 /* ----------------------  */
@@ -157,10 +161,12 @@ select {
   grid-area: box;
   background-color: var(--clr-off-white);
   padding: 2rem;
+  border-radius: 2em;
 }
 
 .input-section {
   align-items: flex-start;
+  gap: var(--gap, 0.5rem);
 }
 
 /* ----------------------  */
@@ -168,7 +174,25 @@ select {
 /* ----------------------  */
 
 input[type="number"] {
-  width: 6rem;
+  width: 8rem;
+  font-size: 2em;
   border: 1px solid var(--clr-light-grey);
   border-radius: 5px;
+  padding: 0.3em;
+}
+
+form {
+  padding-bottom: 4em;
+  border-bottom: 1px solid var(--clr-light-grey);
+}
+
+.age-box {
+  align-items: flex-start;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.units {
+  font-style: italic;
+  font-weight: 700;
 }

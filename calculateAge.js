@@ -58,6 +58,18 @@ function calculateAge(event) {
     return;
   }
 
+  if (
+    (month === 2 && day > 29) ||
+    (month === 4 && day > 30) ||
+    (month === 6 && day > 30) ||
+    (month === 9 && day > 30) ||
+    (month === 11 && day > 30)
+  ) {
+    dayInput.classList.add("input-error");
+    dayError.classList.remove("display-none");
+    return;
+  }
+
   const today = new Date();
   const birthDate = new Date(year, month - 1, day); // month is 0-based
 

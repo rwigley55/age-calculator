@@ -144,6 +144,8 @@ select {
   color: var(--clr-light-red);
   font-size: 0.75em;
   font-weight: 400; /*needs fixing*/
+  position: absolute;
+  top: 105px;
 }
 
 .display-none {
@@ -161,30 +163,36 @@ select {
   padding-inline: 1rem;
   padding-bottom: 4rem;
 
-  grid-template-columns: minmax(1rem, 1fr) minmax(0, 35rem) minmax(1rem, 1fr);
+  grid-template-columns: minmax(1rem, 1fr) minmax(0, 10rem) minmax(1rem, 1fr);
   grid-template-areas: ". box .";
-  /* width: (95%, 70rem); */
   height: 100vh;
 }
 
 .main-box {
   grid-area: box;
   background-color: var(--clr-off-white);
-  padding: 2rem;
-  border-radius: 2em;
+  padding: 2rem 6rem 2rem 2rem;
+  border-radius: 2em 2em 12em 2em;
 }
 
 .input-section {
   align-items: flex-start;
   gap: var(--gap, 0.5rem);
+  position: relative;
 }
+
+/* @media (min-width: 1440px) {
+  .grid-container {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 35rem) minmax(1rem, 1fr);
+  }
+} */
 
 /* ----------------------  */
 /* Componenets             */
 /* ----------------------  */
 
 input[type="number"] {
-  width: 8rem;
+  width: 9rem;
   font-size: 2em;
   border: 1px solid var(--clr-light-grey);
   border-radius: 5px;
@@ -209,4 +217,14 @@ form {
 
 .input-error {
   border: 1px solid var(--clr-light-red) !important;
+}
+
+.submit-button {
+  background-color: var(--clr-purple);
+  padding: 0rem 1.5rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  position: relative;
+  left: 15px;
+  top: 115px;
 }

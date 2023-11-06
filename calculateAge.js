@@ -5,7 +5,9 @@ function calculateAge(event) {
   const monthInput = document.getElementById("month");
   const yearInput = document.getElementById("year");
 
-  const errorValidation = document.querySelector(".display-none");
+  const dayError = document.querySelector("#dayError");
+  const monthError = document.querySelector("#monthError");
+  const yearError = document.querySelector("#yearError");
 
   const day = parseInt(dayInput.value);
   const month = parseInt(monthInput.value);
@@ -15,44 +17,73 @@ function calculateAge(event) {
   dayInput.classList.remove("input-error");
   monthInput.classList.remove("input-error");
   yearInput.classList.remove("input-error");
+  dayError.classList.add("display-none"); //fixing
+  monthError.classList.add("display-none"); //fixing
+  yearError.classList.add("display-none"); //fixing
 
   // Validate input
-  if (day === 0 || month === 0 || year === 0) {
-    //   alert("Please fill in all fields.");
+  if (day === 0) {
     dayInput.classList.add("input-error");
-    dayInput.classList.remove("display-none");
+    dayError.classList.remove("display-none");
+    return;
+  }
+
+  if (month === 0) {
     monthInput.classList.add("input-error");
+    monthError.classList.remove("display-none");
+    return;
+  }
+
+  if (year === 0) {
     yearInput.classList.add("input-error");
+    yearError.classList.remove("display-none");
     return;
   }
 
   if (isNaN(day) || day < 1 || day > 31) {
-    //   alert("Please enter a valid day (1-31).");
     dayInput.classList.add("input-error");
+    dayError.classList.remove("display-none");
     return;
   }
 
   if (isNaN(month) || month < 1 || month > 12) {
-    //   alert("Please enter a valid month (1-12).");
     monthInput.classList.add("input-error");
+    monthError.classList.remove("display-none");
     return;
   }
 
-  if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
-    //   alert("Please enter a valid year.");
+  if (isNaN(year) || year > new Date().getFullYear()) {
     yearInput.classList.add("input-error");
+    yearError.classList.remove("display-none");
     return;
   }
 
   const today = new Date();
   const birthDate = new Date(year, month - 1, day); // month is 0-based
 
+  // if (birthDate > today) {
+  //   // alert("Date of birth cannot be in the future.");
+  //   dayInput.classList.add("input-error");
+  //   monthInput.classList.add("input-error");
+  //   yearInput.classList.add("input-error");
+  //   return;
+  // }
+
   if (birthDate > today) {
-    alert("Date of birth cannot be in the future.");
-    dayInput.classList.add("input-error");
-    monthInput.classList.add("input-error");
-    yearInput.classList.add("input-error");
-    return;
+    if (birthDate.getFullYear() > today.getFullYear()) {
+      yearInput.classList.add("input-error");
+      return;
+    }
+    if (birthDate.getMonth() > today.getMonth()) {
+      monthInput.classList.add("input-error");
+      monthError.classList.remove("display-none");
+      return;
+    }
+    if (birthDate.getDate() > today.getDate()) {
+      dayInput.classList.add("input-error");
+      dayError.classList.remove("display-none");
+      return;
+    }
   }
 
   // Calculate the age

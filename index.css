@@ -160,10 +160,10 @@ select {
   text-align: center;
   display: grid;
   place-items: center;
-  padding-inline: 1rem;
+  /* padding-inline: 1rem; */
   padding-bottom: 4rem;
 
-  grid-template-columns: minmax(1rem, 1fr) minmax(0, 10rem) minmax(1rem, 1fr);
+  grid-template-columns: minmax(1rem, 1fr) minmax(85vw, 35rem) minmax(1rem, 1fr);
   grid-template-areas: ". box .";
   height: 100vh;
 }
@@ -171,8 +171,15 @@ select {
 .main-box {
   grid-area: box;
   background-color: var(--clr-off-white);
-  padding: 2rem 6rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   border-radius: 2em 2em 12em 2em;
+  /* max-width: min(92vw, 50rem); */
+}
+
+@media (min-width: 900px) {
+  .main-box {
+    padding: 2rem 6rem 2rem 2rem;
+  }
 }
 
 .input-section {
@@ -181,27 +188,52 @@ select {
   position: relative;
 }
 
-/* @media (min-width: 1440px) {
-  .grid-container {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 35rem) minmax(1rem, 1fr);
-  }
-} */
-
 /* ----------------------  */
 /* Componenets             */
 /* ----------------------  */
 
 input[type="number"] {
-  width: 9rem;
-  font-size: 2em;
+  padding: 0.2em;
+  width: 5rem;
+  font-size: 1.5em;
   border: 1px solid var(--clr-light-grey);
   border-radius: 5px;
-  padding: 0.3em;
 }
 
-form {
-  padding-bottom: 4em;
+@media (min-width: 900px) {
+  input[type="number"] {
+    padding: 0.3em;
+    width: 9rem;
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 900px) {
+  form {
+    padding-bottom: 4em;
+  }
+}
+
+.form {
   border-bottom: 1px solid var(--clr-light-grey);
+  /* flex-wrap: wrap; */
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    "inputsD inputsM inputsY"
+    ". submit .";
+}
+
+.form:nth-child(1) {
+  grid-area: inputsD;
+}
+
+.form:nth-child(2) {
+  grid-area: inputsM;
+}
+
+.form:nth-child(3) {
+  grid-area: inputsY;
 }
 
 .age-box {
@@ -225,6 +257,14 @@ form {
   border-radius: 50%;
   aspect-ratio: 1;
   position: relative;
-  left: 15px;
-  top: 115px;
+  grid-area: submit;
+  /* left: -300px;
+  top: 115px; */
 }
+
+/* @media (min-width: 900px) {
+  .submit-button {
+    position: relative;
+    left: 15px;
+  }
+} */

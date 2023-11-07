@@ -18,8 +18,8 @@
   </head>
   <body>
     <div class="grid-container">
-      <div class="main-box">
-        <form action="#" class="flex" onsubmit="calculateAge(event)">
+      <div class="main-box flex column">
+        <form action="#" class="form" onsubmit="calculateAge(event)">
           <div class="flex column input-section">
             <label for="day">Day</label>
             <div class="input-container flex column">
@@ -65,6 +65,7 @@
               >
             </div>
           </div>
+
           <input
             type="image"
             class="submit-button"
@@ -72,7 +73,7 @@
             alt="Submit"
           />
         </form>
-        <div class="age-box flex column">
+        <div class="flex column age-box">
           <div class="units"><span class="text-purple">--</span> years</div>
           <div class="units"><span class="text-purple">--</span> months</div>
           <div class="units"><span class="text-purple">--</span> days</div>

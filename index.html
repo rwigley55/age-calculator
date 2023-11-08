@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age calculator app</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
       rel="stylesheet"
-    />
+    /> -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css" />
     <script src="calculateAge.js" defer></script>
@@ -23,13 +23,7 @@
           <div class="flex column input-section">
             <label for="day">Day</label>
             <div class="input-container flex column">
-              <input
-                type="number"
-                id="day"
-                name="day"
-                placeholder="DD"
-                required
-              />
+              <input type="number" id="day" name="day" placeholder="DD" />
               <span id="dayError" class="text-error display-none"
                 >Must be a valid day</span
               >
@@ -38,13 +32,7 @@
           <div class="flex column input-section">
             <label for="month">Month</label>
             <div class="input-container flex column">
-              <input
-                type="number"
-                id="month"
-                name="month"
-                placeholder="MM"
-                required
-              />
+              <input type="number" id="month" name="month" placeholder="MM" />
               <span id="monthError" class="text-error display-none"
                 >Must be a valid month</span
               >
@@ -53,13 +41,7 @@
           <div class="flex column input-section">
             <label for="year">Year</label>
             <div class="input-container flex column">
-              <input
-                type="number"
-                id="year"
-                name="year"
-                placeholder="YYYY"
-                required
-              />
+              <input type="number" id="year" name="year" placeholder="YYYY" />
               <span id="yearError" class="text-error display-none"
                 >Must be in the past</span
               >

@@ -10,9 +10,52 @@
   --clr-light-grey: hsl(0, 0%, 86%);
   --clr-smokey-grey: hsl(0, 1%, 44%);
   --clr-off-black: hsl(0, 0%, 8%);
+}
 
-  /* font-sizes */
-  /* font-families */
+/* ----------------------  */
+/* Fonts                   */
+/* ----------------------  */
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-Italic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-BoldItalic.ttf);
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-ExtraBold.ttf);
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-ExtraBoldItalic.ttf);
+  font-weight: 800;
+  font-style: italic;
 }
 
 /* ----------------------  */
@@ -65,10 +108,8 @@ html {
   scroll-padding-top: 5em;
 }
 
-/* Set core body defaults */
 body {
   font-family: "Poppins", sans-serif;
-  /* font-size: var(--fs-med); */
   color: var(--clr-off-black);
   background-color: var(--clr-light-grey);
 
@@ -82,7 +123,6 @@ body {
   overflow-x: hidden;
 }
 
-/* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
@@ -92,14 +132,12 @@ a {
   text-decoration: inherit;
 }
 
-/* Make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
@@ -107,7 +145,6 @@ select {
   font: inherit;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -143,9 +180,16 @@ select {
 .text-error {
   color: var(--clr-light-red);
   font-size: 0.75em;
-  font-weight: 400; /*needs fixing*/
+  font-weight: normal;
+  font-style: italic;
   position: absolute;
-  top: 105px;
+  top: 70px;
+}
+
+@media (min-width: 900px) {
+  .text-error {
+    top: 95px;
+  }
 }
 
 .display-none {
@@ -160,7 +204,6 @@ select {
   text-align: center;
   display: grid;
   place-items: center;
-  /* padding-inline: 1rem; */
   padding-bottom: 4rem;
 
   grid-template-columns: minmax(1rem, 1fr) minmax(85vw, 35rem) minmax(1rem, 1fr);
@@ -172,13 +215,14 @@ select {
   grid-area: box;
   background-color: var(--clr-off-white);
   padding: 2rem 2rem 2rem 2rem;
-  border-radius: 2em 2em 12em 2em;
+  border-radius: 2em 2em 7em 2em;
   /* max-width: min(92vw, 50rem); */
 }
 
 @media (min-width: 900px) {
   .main-box {
-    padding: 2rem 6rem 2rem 2rem;
+    border-radius: 2em 2em 12em 2em;
+    padding: 2rem;
   }
 }
 
@@ -192,36 +236,47 @@ select {
 /* Componenets             */
 /* ----------------------  */
 
+label {
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--clr-smokey-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
 input[type="number"] {
+  font-weight: 700;
   padding: 0.2em;
   width: 5rem;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border: 1px solid var(--clr-light-grey);
   border-radius: 5px;
 }
 
 @media (min-width: 900px) {
   input[type="number"] {
-    padding: 0.3em;
+    padding: 0.35em;
     width: 9rem;
-    font-size: 2em;
-  }
-}
-
-@media (min-width: 900px) {
-  form {
-    padding-bottom: 4em;
+    font-size: 1.75em;
   }
 }
 
 .form {
   border-bottom: 1px solid var(--clr-light-grey);
-  /* flex-wrap: wrap; */
+  gap: var(--gap, 1em);
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-areas:
     "inputsD inputsM inputsY"
     ". submit .";
+}
+
+@media (min-width: 900px) {
+  .form {
+    grid-template-areas:
+      "inputsD inputsM inputsY ."
+      ". . . submit";
+  }
 }
 
 .form:nth-child(1) {
@@ -238,8 +293,17 @@ input[type="number"] {
 
 .age-box {
   align-items: flex-start;
-  font-size: 5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
   line-height: 1;
+  margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+  .age-box {
+    font-size: 5rem;
+  }
 }
 
 .units {
@@ -253,18 +317,25 @@ input[type="number"] {
 
 .submit-button {
   background-color: var(--clr-purple);
-  padding: 0rem 1.5rem;
+  padding: 1rem;
   border-radius: 50%;
   aspect-ratio: 1;
   position: relative;
   grid-area: submit;
-  /* left: -300px;
-  top: 115px; */
+  justify-self: center;
+  top: 40px;
 }
 
-/* @media (min-width: 900px) {
+.submit-button:active,
+.submit-button:focus-visible {
+  background-color: var(--clr-off-black);
+}
+
+@media (min-width: 900px) {
   .submit-button {
+    padding: 1.2rem;
     position: relative;
-    left: 15px;
+    left: 30px;
+    top: 40px;
   }
-} */
+}

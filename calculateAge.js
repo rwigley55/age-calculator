@@ -73,14 +73,6 @@ function calculateAge(event) {
   const today = new Date();
   const birthDate = new Date(year, month - 1, day); // month is 0-based
 
-  // if (birthDate > today) {
-  //   // alert("Date of birth cannot be in the future.");
-  //   dayInput.classList.add("input-error");
-  //   monthInput.classList.add("input-error");
-  //   yearInput.classList.add("input-error");
-  //   return;
-  // }
-
   if (birthDate > today) {
     if (birthDate.getFullYear() > today.getFullYear()) {
       yearInput.classList.add("input-error");
